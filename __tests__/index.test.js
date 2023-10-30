@@ -44,6 +44,13 @@ test('task2', () => {
   assert.equal(schema4.isValid(' hello?'), false);
   assert.equal(schema4.isValid('Hieee'), false);
   assert.equal(schema4.isValid('Hide!'), true);
+
+  const schema5 = validator.string().contains('hex');
+  assert.equal(schema5.isValid('exle'), false);
+  assert.equal(schema5.isValid(' hello?'), false);
+  assert.equal(schema5.isValid('hexlet'), true);
+  assert.equal(schema5.isValid('hexlet12345'), true);
+  assert.equal(schema5.isValid('hexlet hexlet'), true);
 });
 
 test('task3', () => {

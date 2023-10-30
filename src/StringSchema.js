@@ -22,4 +22,9 @@ export default class StringSchema {
     const validator = (value) => value.includes('!');
     return new StringSchema([...this.validators, validator]);
   }
+
+  contains(str) {
+    const validator = (value) => value.includes(str);
+    return new StringSchema([...this.validators, validator]);
+  }
 }
